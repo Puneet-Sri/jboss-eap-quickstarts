@@ -34,7 +34,7 @@ import java.io.PrintWriter;
  * @author <a href="mailto:darran.lofthouse@jboss.com">Darran Lofthouse</a>
  */
 @RestController
-public class SecuredServlet extends HttpServlet {
+public class SecuredServlet {
 
     @Inject
     private SecurityContext securityContext;
@@ -42,7 +42,6 @@ public class SecuredServlet extends HttpServlet {
     @Inject
     private SecurityIdentity securityIdentity;
 
-    @Override
     @GetMapping("/secured")
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter pw = resp.getWriter();

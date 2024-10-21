@@ -21,18 +21,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import org.jboss.as.quickstarts.jaxrsclient.model.Contact;
 
-@Path("/contacts")
+@RestController
 public class ContactResourceRESTService {
 
     private static Map<Long, Contact> contactsRepository = new HashMap<>();
@@ -41,9 +43,10 @@ public class ContactResourceRESTService {
      * Creates a new contact from the values provided and will return a JAX-RS response with either 200 ok, or 400 (BAD REQUEST)
      * in case of errors.
      */
-    @POST
+
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    @PostMapping("/contacts")
     public Response createContact(Contact contact) {
 
         Response.ResponseBuilder builder = null;
@@ -64,14 +67,14 @@ public class ContactResourceRESTService {
     }
 
     // delete all contacts
-    @DELETE
+    @DeleteMapping
     public Response removeAllContacts() {
         contactsRepository.clear();
         return Response.ok().build();
     }
 
     // delete a specific contact
-    @DELETE
+    @DeleteMapping
     @Path("/{id}")
     public Response removeContact(final @PathParam("id") Long id) {
         contactsRepository.remove(id);
@@ -79,7 +82,7 @@ public class ContactResourceRESTService {
     }
 
     // Fetch all contacts
-    @GET
+    @GetMapping
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAll() {
         Collection<Contact> allcontacts = contactsRepository.values();
@@ -87,7 +90,7 @@ public class ContactResourceRESTService {
     }
 
     // Fetch a specific contact
-    @GET
+    @GetMapping
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getById(final @PathParam("id") Long id) {
