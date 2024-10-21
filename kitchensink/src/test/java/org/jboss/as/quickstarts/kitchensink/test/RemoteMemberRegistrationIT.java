@@ -16,18 +16,9 @@
  */
 package org.jboss.as.quickstarts.kitchensink.test;
 
-import jakarta.json.Json;
-import jakarta.json.JsonObject;
-
-
-import java.util.logging.Logger;
-
 import java.net.URI;
 import java.net.URISyntaxException;
-
-import org.jboss.as.quickstarts.kitchensink.model.Member;
-import org.junit.Assert;
-import org.junit.Test;
+import java.util.logging.Logger;
 
 public class RemoteMemberRegistrationIT {
 

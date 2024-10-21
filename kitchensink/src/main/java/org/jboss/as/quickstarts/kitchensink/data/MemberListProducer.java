@@ -23,9 +23,9 @@ import jakarta.enterprise.event.Reception;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import java.util.List;
-
 import org.jboss.as.quickstarts.kitchensink.model.Member;
+
+import java.util.List;
 
 @RequestScoped
 public class MemberListProducer {

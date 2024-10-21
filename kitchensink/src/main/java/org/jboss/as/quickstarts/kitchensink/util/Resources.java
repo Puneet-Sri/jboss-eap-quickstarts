@@ -16,12 +16,12 @@
  */
 package org.jboss.as.quickstarts.kitchensink.util;
 
-import java.util.logging.Logger;
-
 import jakarta.enterprise.inject.Produces;
 import jakarta.enterprise.inject.spi.InjectionPoint;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+
+import java.util.logging.Logger;
 
 /**
  * This class uses CDI to alias Jakarta EE resources, such as the persistence context, to CDI beans

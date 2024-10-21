@@ -16,12 +16,7 @@
  */
 package org.jboss.as.quickstarts.kitchensink.test;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.util.logging.Logger;
-
 import jakarta.inject.Inject;
-
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.as.quickstarts.kitchensink.model.Member;
@@ -33,6 +28,10 @@ import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.logging.Logger;
+
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(Arquillian.class)
 public class MemberRegistrationIT {
