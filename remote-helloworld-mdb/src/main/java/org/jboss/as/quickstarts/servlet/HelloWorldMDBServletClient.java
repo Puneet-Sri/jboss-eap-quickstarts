@@ -27,12 +27,11 @@ import jakarta.jms.JMSDestinationDefinition;
 import jakarta.jms.JMSDestinationDefinitions;
 import jakarta.jms.Queue;
 import jakarta.jms.Topic;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 /**
  * Definition of the two JMS destinations used by the quickstart
  * (one queue and one topic).
@@ -58,8 +57,8 @@ import jakarta.servlet.http.HttpServletResponse;
  * A simple servlet as client that sends several messages to a queue or a topic.
  * @author Emmanuel Hugonnet (c) 2023 Red Hat, Inc.
  */
-@WebServlet("/HelloWorldMDBServletClient")
-public class HelloWorldMDBServletClient extends HttpServlet {
+@RestController
+public class HelloWorldMDBServletClient {
 
     private static final long serialVersionUID = -8314035702649252239L;
 
@@ -74,8 +73,8 @@ public class HelloWorldMDBServletClient extends HttpServlet {
     @Resource(lookup = "java:/topic/HELLOWORLDMDBTopic")
     private transient Topic topic;
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    @GetMapping("/HelloWorldMDBServletClient")
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("text/html");
         try (PrintWriter out = resp.getWriter()) {
             out.println("<h1>Quickstart: Example demonstrates the use of <strong>Jakarta Messaging 3.1</strong> and <strong>Jakarta Enterprise Beans 4.0 Message-Driven Bean</strong> in a JakartaEE server.</h1>");
@@ -93,8 +92,8 @@ public class HelloWorldMDBServletClient extends HttpServlet {
         }
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+   @PostMapping("/HelloWorldMDBServletClient")
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         doGet(req, resp);
     }
 }
