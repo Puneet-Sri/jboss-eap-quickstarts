@@ -18,9 +18,7 @@ package org.jboss.as.quickstarts.cmt.controller;
 
 import java.util.List;
 
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import jakarta.inject.Named;
 import javax.naming.NamingException;
 import jakarta.transaction.HeuristicMixedException;
 import jakarta.transaction.HeuristicRollbackException;
@@ -30,9 +28,9 @@ import jakarta.transaction.SystemException;
 
 import org.jboss.as.quickstarts.cmt.ejb.LogMessageManagerEJB;
 import org.jboss.as.quickstarts.cmt.model.LogMessage;
+import org.springframework.stereotype.Service;
 
-@Named("logMessageManager")
-@RequestScoped
+@Service
 public class LogMessageManager {
     @Inject
     private LogMessageManagerEJB logMessageManager;

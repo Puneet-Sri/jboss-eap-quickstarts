@@ -16,24 +16,24 @@
  */
 package org.jboss.as.quickstarts.cmt.controller;
 
-import java.util.List;
-import java.util.logging.Logger;
-
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import jakarta.inject.Named;
-import javax.naming.NamingException;
+
 import jakarta.transaction.HeuristicMixedException;
 import jakarta.transaction.HeuristicRollbackException;
 import jakarta.transaction.NotSupportedException;
 import jakarta.transaction.RollbackException;
 import jakarta.transaction.SystemException;
-
 import org.jboss.as.quickstarts.cmt.ejb.CustomerManagerEJB;
 import org.jboss.as.quickstarts.cmt.model.Customer;
+import org.springframework.stereotype.Service;
 
-@Named("customerManager")
-@RequestScoped
+import javax.naming.NamingException;
+import java.util.List;
+import java.util.logging.Logger;
+
+
+
+@Service
 public class CustomerManager {
     private Logger logger = Logger.getLogger(CustomerManager.class.getName());
     private String name;
@@ -50,7 +50,7 @@ public class CustomerManager {
     }
 
     public List<Customer> getCustomers() throws SecurityException, IllegalStateException, NamingException,
-        NotSupportedException, SystemException, RollbackException, HeuristicMixedException, HeuristicRollbackException {
+            NotSupportedException, SystemException, RollbackException, HeuristicMixedException, HeuristicRollbackException {
         return customerManager.listCustomers();
     }
 
