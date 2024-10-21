@@ -17,7 +17,6 @@
 package org.jboss.as.quickstarts.ee_security;
 
 import jakarta.enterprise.inject.Produces;
-
 import org.wildfly.security.auth.server.SecurityDomain;
 import org.wildfly.security.auth.server.SecurityIdentity;
 

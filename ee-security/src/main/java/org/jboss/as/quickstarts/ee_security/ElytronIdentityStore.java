@@ -16,7 +16,13 @@
 
 package org.jboss.as.quickstarts.ee_security;
 
-import static jakarta.security.enterprise.identitystore.CredentialValidationResult.INVALID_RESULT;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import jakarta.security.enterprise.credential.Credential;
+import jakarta.security.enterprise.credential.UsernamePasswordCredential;
+import jakarta.security.enterprise.identitystore.CredentialValidationResult;
+import jakarta.security.enterprise.identitystore.IdentityStore;
+import org.wildfly.security.auth.server.SecurityDomain;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -25,14 +31,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.wildfly.security.auth.server.SecurityDomain;
-
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
-import jakarta.security.enterprise.credential.Credential;
-import jakarta.security.enterprise.credential.UsernamePasswordCredential;
-import jakarta.security.enterprise.identitystore.CredentialValidationResult;
-import jakarta.security.enterprise.identitystore.IdentityStore;
+import static jakarta.security.enterprise.identitystore.CredentialValidationResult.INVALID_RESULT;
 
 /**
  *

@@ -20,11 +20,12 @@
  */
 package org.jboss.as.quickstarts.ee_security;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.runner.RunWith;
+
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  *

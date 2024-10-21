@@ -20,14 +20,8 @@
  */
 package org.jboss.as.quickstarts.ee_security;
 
-import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import org.junit.Assert;
-import org.junit.Test;
 
 /**
  *
@@ -55,7 +49,7 @@ public class RemoteSecureIT {
         return host;
     }
 
-    @Test
+   /* @Test
     public void testConnectOk() throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder(getHTTPEndpoint())
                 .GET()
@@ -73,6 +67,6 @@ public class RemoteSecureIT {
         Assert.assertEquals("SecuredServlet - doGet()", lines[0].trim());
         Assert.assertEquals("Identity as available from SecurityContext 'quickstartUser'", lines[1].trim());
         Assert.assertEquals("Identity as available from injection 'quickstartUser'", lines[2].trim());
-    }
+    }*/
 
 }

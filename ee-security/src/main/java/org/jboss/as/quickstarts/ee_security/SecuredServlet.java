@@ -16,20 +16,18 @@
 
 package org.jboss.as.quickstarts.ee_security;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import jakarta.inject.Inject;
 import jakarta.security.enterprise.SecurityContext;
 import jakarta.servlet.ServletException;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.wildfly.security.auth.server.SecurityIdentity;
+
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  *

@@ -17,9 +17,10 @@
 package org.jboss.as.quickstarts.helloworld;
 
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,14 +36,15 @@ import java.io.PrintWriter;
  *
  */
 @SuppressWarnings("serial")
-@WebServlet("/HelloWorld")
-public class HelloWorldServlet extends HttpServlet {
+
+@RestController
+public class HelloWorldServlet{
 
     static String PAGE_HEADER = "<html><head><title>helloworld</title></head><body>";
 
     static String PAGE_FOOTER = "</body></html>";
 
-    @Override
+    @GetMapping("/HelloWorld")
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("text/html");
         PrintWriter writer = resp.getWriter();
