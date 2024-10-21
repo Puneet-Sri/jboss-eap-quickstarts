@@ -23,11 +23,10 @@ import java.security.Principal;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.HttpConstraint;
 import jakarta.servlet.annotation.ServletSecurity;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 /**
  * A simple secured Servlet. Upon successful authentication and authorization the Servlet will print details of the user and
  * authentication. Servlet security is implemented using annotations.
@@ -36,15 +35,15 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  */
 @SuppressWarnings("serial")
-@WebServlet("/SecuredServlet")
 @ServletSecurity(@HttpConstraint(rolesAllowed = { "quickstarts" }))
-public class SecuredServlet extends HttpServlet {
+@RestController
+public class SecuredServlet{
 
     private static String PAGE_HEADER = "<html><head><title>servlet-security</title></head><body>";
 
     private static String PAGE_FOOTER = "</body></html>";
 
-    @Override
+    @GetMapping("/SecuredServlet")
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter writer = resp.getWriter();
         // Get security principal
