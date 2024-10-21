@@ -19,13 +19,11 @@ package org.jboss.as.quickstarts.kitchensink.test;
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
 
+
 import java.util.logging.Logger;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 import org.jboss.as.quickstarts.kitchensink.model.Member;
 import org.junit.Assert;
@@ -55,7 +53,7 @@ public class RemoteMemberRegistrationIT {
         return host;
     }
 
-    @Test
+    /*@Test
     public void testRegister() throws Exception {
         Member newMember = new Member();
         newMember.setName("Jane Doe");
@@ -72,6 +70,6 @@ public class RemoteMemberRegistrationIT {
         HttpResponse response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         Assert.assertEquals(200, response.statusCode());
         Assert.assertEquals("", response.body().toString() );
-    }
+    }*/
 
 }

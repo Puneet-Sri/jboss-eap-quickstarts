@@ -22,10 +22,12 @@ import java.io.PrintWriter;
 import jakarta.inject.Inject;
 import jakarta.security.enterprise.SecurityContext;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 
 import org.wildfly.security.auth.server.SecurityIdentity;
 
@@ -33,7 +35,7 @@ import org.wildfly.security.auth.server.SecurityIdentity;
  *
  * @author <a href="mailto:darran.lofthouse@jboss.com">Darran Lofthouse</a>
  */
-@WebServlet(value="/secured")
+@RestController
 public class SecuredServlet extends HttpServlet {
 
     @Inject
@@ -43,6 +45,7 @@ public class SecuredServlet extends HttpServlet {
     private SecurityIdentity securityIdentity;
 
     @Override
+    @GetMapping("/secured")
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter pw = resp.getWriter();
         pw.println("SecuredServlet - doGet()");
